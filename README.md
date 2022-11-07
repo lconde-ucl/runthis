@@ -22,7 +22,9 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 
 2. module load nf/runthis
 
-3. Start running your own analysis!
+3. If the commands need specific software to be loaded, you will need to add the modules into a config file and use the '-c file' argument. A template config file (user.config) is available in this repository 
+
+4. Start running your own analysis!
 
    ```bash
    runthis --input <inputfile.txt> [--outdir <OUTDIR>] [-c <user.config>]
