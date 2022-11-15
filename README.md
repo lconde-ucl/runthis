@@ -27,7 +27,7 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 4. Start running your own analysis!
 
    ```bash
-   runthis --input <inputfile.txt> [--outdir <OUTDIR>] [-c <user.config>]
+   runthis --inputfile <inputfile.csv> [--outdir <OUTDIR>] [-c <user.config>]
    ```
 
 ## Credits

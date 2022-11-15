@@ -31,10 +31,10 @@ def helpMessage() {
     log.info """
           Usage:
           The typical command for running the pipeline is as follows:
-          runthis --file inputfile.txt [--outdir results] [-c user.config]
+          runthis --inputfile inputfile.csv [--outdir results] [-c user.config]
 
           Arguments:
-           --inputfile                    File with list of commands [./inputfile.txt]
+           --inputfile                    CSV file with list of sampleD and commands [./inputfile.csv]
            -c file                        Add this configuration file. Used to specify which modules to load
            --outdir                       Output director [./results]
            --help                         This usage statement
@@ -44,6 +44,29 @@ def helpMessage() {
            -with-tower                    Monitor workflow execution with Seqera Tower service [False]
            -ansi-log                      Enable/disable ANSI console logging [True]
            -N, -with-notification         Send a notification email on workflow completion to the specified recipients [False]
+
+          Example inputfile:
+           1,Rscript myscript.R --param bar
+           2,Rscript myscript.R --param bar
+
+          Example config file:
+           process {
+
+             // Add here the modules you need to run your specific commands
+             // For the modules to work, you need to source your .bashrc first, then we suggest to purge all the modules
+             // Check that the modules added here are loaded correctly before running the pipeline
+
+             beforeScript = 'source $HOME/.bashrc; module purge; module load r/recommended'
+             module = 'samtools:blic-modules:bwameth'
+
+             // Defaults for all processes
+             // Modify if needed
+
+             cpus = 1
+             memory = '7.GB'
+             time = '4.h'
+
+           }
            """
 }
 
