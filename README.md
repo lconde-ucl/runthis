@@ -32,10 +32,10 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 
    Example inputfile:
 
-      Sample1,Rscript myscript.R --param bar1
-
-      Sample2,Rscript myscript.R --param bar2
-
+   ```
+   Sample1,Rscript myscript.R --param bar1
+   Sample2,Rscript myscript.R --param bar2
+   ```
 
 ## Credits
 
