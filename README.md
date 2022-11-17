@@ -30,6 +30,11 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
    runthis --inputfile <inputfile.csv> [--outdir <OUTDIR>] [-c <user.config>]
    ```
 
+   Example inputfile:
+      Sample1,Rscript myscript.R --param bar1
+      Sample2,Rscript myscript.R --param bar2
+
+
 ## Credits
 
 runthis was developed by LC and JH, using nf-core tools
