@@ -9,7 +9,17 @@ nextflow.enable.dsl = 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-file_ch = Channel.fromPath( params.inputfile )
+// Check inputfile exists
+
+// This actually cannot happen as there is a default inputfile in nextflow.config
+if( !params.inputfile ){
+    exit 1, "No inputfile specified! Specify path with --inputfile."
+}
+
+inpufile = file(params.inputfile)
+if( !inputfile.exists() ) exit 1, "Inputfile not found: ${params.inputfile}. Specify path with --inputfile."
+
+file_ch = Channel.fromPath( params.inputfile, checkIfExists: true )
 	.splitCsv()
 
 /*
