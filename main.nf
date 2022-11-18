@@ -16,7 +16,7 @@ if( !params.inputfile ){
     exit 1, "No inputfile specified! Specify path with --inputfile."
 }
 
-inpufile = file(params.inputfile)
+inputfile = file(params.inputfile)
 if( !inputfile.exists() ) exit 1, "Inputfile not found: ${params.inputfile}. Specify path with --inputfile."
 
 file_ch = Channel.fromPath( params.inputfile, checkIfExists: true )
